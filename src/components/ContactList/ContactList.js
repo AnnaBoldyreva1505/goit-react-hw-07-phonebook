@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { deleteContact } from '../../redux/contacts/contactSlice';
+import { deleteContact } from '../../redux/operations';
 import { selectContacts } from '../../redux/contacts/contact-selectors';
 import { selectFilter } from '../../redux/filter/filter-selectors';
 import toast from 'react-hot-toast';
@@ -19,10 +19,10 @@ export const ContactList = () => {
 
   return (
     <ul>
-      {getVisibleContacts().map(({ name, id, number }) => {
+      {getVisibleContacts().map(({ name, id, phone }) => {
         return (
           <li key={id}>
-            {name}: {number}
+            {name}: {phone}
             <button type="button" onClick={() => {
               dispatch(deleteContact(id));
               toast.success(`Contact with name "${name}" is deleted`);
