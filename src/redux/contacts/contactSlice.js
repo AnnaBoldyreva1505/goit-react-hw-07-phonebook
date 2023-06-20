@@ -36,11 +36,11 @@ const contactsSlice = createSlice({
       state.error = payload;
     },
     [addContact.pending]: state => {
-       state.isLoading = true;
-     },
+      state.isLoading = true;
+    },
     [addContact.fulfilled]: (state, { payload }) => {
-       state.isLoading = false;
-     state.error = null;
+      state.isLoading = false;
+      state.error = null;
       state.contacts = [payload, ...state.contacts];
       // state.contacts.push(payload);
     },
@@ -48,33 +48,3 @@ const contactsSlice = createSlice({
 });
 
 export const contactsReducer = contactsSlice.reducer;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// const contactsSlice = createSlice({
-//   name: 'contacts',
-//   initialState,
-//   reducers: {
-//     addContact(state, { payload }) {
-//       state.contacts.push(payload);
-//     },
-//     deleteContact(state, { payload }) {
-//       state.contacts = state.contacts.filter(contact => contact.id !== payload);
-//     },
-//   },
-// });
-
-// export const contactsReducer = contactsSlice.reducer;
-// export const { addContact, deleteContact } = contactsSlice.actions;

@@ -23,10 +23,13 @@ export const ContactList = () => {
         return (
           <li key={id}>
             {name}: {phone}
-            <button type="button" onClick={() => {
-              dispatch(deleteContact(id));
-              toast.success(`Contact with name "${name}" is deleted`);
-            }}>
+            <button
+              type="button"
+              onClick={() => {
+                dispatch(deleteContact(id));
+                toast.success(`Contact with name "${name}" is deleted`);
+              }}
+            >
               Delete
             </button>
           </li>
