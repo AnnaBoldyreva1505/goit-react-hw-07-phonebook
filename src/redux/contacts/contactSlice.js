@@ -7,7 +7,6 @@ const initialState = {
   error: null,
 };
 
-
 const pendingReducer = state => {
   state.isLoading = true;
 };
@@ -21,7 +20,7 @@ const fetchContactsFulfiledReducer = (state, { payload }) => {
   state.isLoading = false;
   state.contacts = payload;
   state.error = null;
-}
+};
 
 const addContactFulfilledReducer = (state, { payload }) => {
   state.isLoading = false;
@@ -36,7 +35,6 @@ const deleteContsctFulfilledReducer = (state, { payload }) => {
   state.contacts = state.contacts.filter(({ id }) => id !== payload.id);
 };
 
-
 const contactsSlice = createSlice({
   name: 'tasks',
   initialState,
@@ -50,36 +48,18 @@ const contactsSlice = createSlice({
       .addCase(addContact.rejected, rejectedReducer)
       .addCase(deleteContact.pending, pendingReducer)
       .addCase(deleteContact.fulfilled, deleteContsctFulfilledReducer)
-      .addCase(deleteContact.rejected, rejectedReducer)
-
+      .addCase(deleteContact.rejected, rejectedReducer),
 });
 
 export const contactsReducer = contactsSlice.reducer;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // const contactsSlice = createSlice({
 //   name: 'contacts',
 //   initialState,
 //   extraReducers: {
-    // [fetchContacts.pending]: state => {
-    //   state.isLoading = true;
-    // },
+// [fetchContacts.pending]: state => {
+//   state.isLoading = true;
+// },
 //     [fetchContacts.fulfilled]: (state, { payload }) => {
 //       state.isLoading = false;
 //       state.contacts = payload;
@@ -112,4 +92,3 @@ export const contactsReducer = contactsSlice.reducer;
 //     },
 //   },
 // });
-
